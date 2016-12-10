@@ -1,16 +1,4 @@
-<html lang="en">
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Información de la oferta</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-<body style="background-color:#FCFCFC;">
-<br>
-<div class="container-fluid">
+<br><div class="container-fluid">
 <div class="panel panel-default">
 <div class="panel-heading"><b>Información de la Oferta Nº <?= $idoferta; ?></b></div>
 <div class="panel-body">
@@ -51,8 +39,6 @@
 </div>
 </div>
 </div>
-<div class="panel-footer"><a href="..\ctrl\list_ctl.php" class="btn btn-primary"><span class="glyphicon glyphicon-chevron-left"></span>&nbsp;<b>Lista</a></div>
+<div class="panel-footer"><a href="?ctrl=list_ctl" class="btn btn-primary"><span class="glyphicon glyphicon-chevron-left"></span>&nbsp;<b>Lista</b></a></div>
 </div>
 </div>
-</body>
-</html>

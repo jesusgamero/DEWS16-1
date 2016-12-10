@@ -1,14 +1,3 @@
-<html lang="en">
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Listado de Ofertas</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-	<body style="background-color:#FCFCFC;">
 		<br>
 		<!-- Borrado correcto-->
 		<?php if (get('borrado')) :?>
@@ -88,7 +77,7 @@
 		</div>
 		<div class="center-block">
 		<button class="btn btn-primary btn-md col-xs-12 col-sm-12 col-md-1" name="bfiltrar" type="submit">
-		<span class="glyphicon glyphicon-filter"></span>&nbsp;Filtrar ofertas</button>
+		<span class="glyphicon glyphicon-filter"></span>&nbsp;Filtrar</button>
 		</div>
 		</div>
 	</div>
@@ -139,14 +128,21 @@
 					</div>
 					
 					<div class="panel-footer">
-					<a href="..\ctrl\info_ctl.php?id=<?= $oferta['idoferta']; ?>"><span class="glyphicon glyphicon-eye-open"></span>&nbsp;<b>&nbsp;Ver</b></a>&nbsp;&nbsp;&nbsp;
-					<a href="..\ctrl\update_ctl.php?id=<?= $oferta['idoferta']; ?>"><span class="glyphicon glyphicon-pencil"></span>&nbsp;<b>&nbsp;Editar</b></a>&nbsp;&nbsp;&nbsp;
-					<a href="..\ctrl\delete_ctl.php?id=<?= $oferta['idoferta']; ?>" style="color: #CB4335"><span style="color: #FFFFF" class="glyphicon glyphicon-remove"></span>&nbsp;<b>&nbsp;Borrar</b></a>
+					<a href="?ctrl=info_ctl&id=<?= $oferta['idoferta']; ?>"><span class="glyphicon glyphicon-eye-open"></span>&nbsp;<b>&nbsp;Ver</b></a>&nbsp;&nbsp;&nbsp;
+					<a href="?ctrl=update_ctl&id=<?= $oferta['idoferta']; ?>"><span class="glyphicon glyphicon-pencil"></span>&nbsp;<b>&nbsp;Editar</b></a>&nbsp;&nbsp;&nbsp;
+					<a href="?ctrl=delete_ctl&id=<?= $oferta['idoferta']; ?>" style="color: #CB4335"><span style="color: #FFFFF" class="glyphicon glyphicon-remove"></span>&nbsp;<b>&nbsp;Borrar</b></a>
 					</div>
-					</div><br>
+					</div>
 	
-	<?php }}?>	
+	<?php }}?>
+	<center>
+		<ul class="pagination">
+		<li><a href="?ctrl=list_ctl&pag=1" >&laquo;</a></li>
+		<?php for ($i = 1; $i <= $maxPag; $i++) {
+			echo "<li><a href='?ctrl=list_ctl&pag=".$i."'>".$i."</a></li>";
+		}
+		echo '<li><a href="?ctrl=list_ctl&pag='.ceil($maxPag-1).'">&raquo;</a></li>';
+		?>
+		</ul>
 	</div>
 	</div>
-	</body>
-</html>

@@ -6,7 +6,7 @@
 	//Llamada a utilidades
 	include_once(__DIR__."/../helpers/utilidades.php");
 	
-	define ('PROXPAG',10);
+	define ('PROXPAG',4);
 		
 	if (isset($_GET['pag']))
 		$pag=$_GET['pag'];

@@ -1,16 +1,4 @@
-<html lang="en">
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Confirmación de borrar</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-<body style="background-color:#FCFCFC;">
-<br>
-<div class="container-fluid">
+<br><div class="container-fluid">
 <div class="panel panel-danger">
 <div class="panel-heading"><b>Borrar Oferta</b></div>
 <div class="panel-body">
@@ -59,10 +47,8 @@
   </div>
   <div class="panel-body center-block">
     <b>¿Estás seguro que quieres borrar este registro? &nbsp;&nbsp;</b>
-	<a href="..\ctrl\delete_ctl.php?borrado=si&id=<?=$idoferta;?>" class="btn btn-success"><span class="glyphicon glyphicon-ok"></span>&nbsp;&nbsp;Si</a>&nbsp;&nbsp;
-	<a href="..\ctrl\list_ctl.php" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;No</a>
+	<a href="?ctrl=delete_ctl&borrado=si&id=<?=$idoferta;?>" class="btn btn-success"><span class="glyphicon glyphicon-ok"></span>&nbsp;&nbsp;Si</a>&nbsp;&nbsp;
+	<a href="?ctrl=list_ctl" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;No</a>
   </div>
 </div>
 </div>
-</body>
-</html>
