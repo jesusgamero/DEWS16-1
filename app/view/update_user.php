@@ -56,7 +56,7 @@
     <h3 class="panel-title">Confirmación de modificación:</h3>
   </div>
   <div class="panel-body">
-    <b>¿Estás seguro que modificar esta oferta? &nbsp;&nbsp;</b>
+    <b>¿Estás seguro que modificar este usuario? &nbsp;&nbsp;</b>
 	<button class="btn btn-success btn-md" name="bactualizar" type="submit"><span class="glyphicon glyphicon-ok"></span>&nbsp;&nbsp;Si</button>&nbsp;&nbsp;
 	<a href="?ctrl=list_user" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;No</a>
 	</form>
