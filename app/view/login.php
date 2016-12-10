@@ -1,7 +1,8 @@
 <div class="contenido">
 	<div class="separacion">
         <div class="card card-container">
-            <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+            <img id="profile-img" class="profile-img-card" src="template/img/login.png" />
+			<center><h3>Bienvenido</h3></center>
             <p id="profile-name" class="profile-name-card"></p>
 			
 			<?php if ($hayError) :?>

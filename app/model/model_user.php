@@ -1,9 +1,10 @@
 <?php
 include (MODEL_PATH . "DB_connection.php");
 
-/**Devuelve los datos de un usuario cuyo campo le paso como parámetro.
+/**
+* Devuelve los datos de un usuario cuyo campo le paso como parametro.
 * @param unknown $campo Campo a buscar.
-* @param unknown $busqueda Criterio de búsqueda.
+* @param unknown $busqueda Criterio de bÃºsqueda.
 * @return unknown $datos Datos del usuario.
 */
 
@@ -19,7 +20,8 @@ function datosUsuario($campo, $busqueda)
 	return $datos;
 }
 
-/**Devuelve si existe un usuario o no.
+/**
+* Devuelve si existe un usuario o no.
 * @param unknown $usuario Nombre de usuario.
 * @return boolean Devuelve si existe o no.
 */
@@ -38,8 +40,9 @@ function existeUsuario($usuario)
 	}
 }
 
-/**Devuelve el número de usuarios registrados.
-* @return unknown $reg['total'] Número de usuarios.
+/**
+* Devuelve el nÃºmero de usuarios registrados.
+* @return unknown $reg['total'] NÃºmero de usuarios.
 */
 
 function nUsuarios()
@@ -51,7 +54,8 @@ function nUsuarios()
 	return $reg['total'];
 }
 
-/**Inserta un usuario.
+/**
+* Inserta un usuario.
 * @param unknown $campos Datos del usuario.
 */
 
@@ -61,7 +65,8 @@ function insertaUsuario($campos)
 	$bd->Insertar("usuario", $campos);
 }
 
-/**Borra un usario.
+/**
+* Borra un usario.
 * @param unknown $id ID del usuario-
 */
 
@@ -71,7 +76,8 @@ function borrarUsuario($id)
 	$bd->BorrarRegistro("usuario", "cod", $id);
 }
 
-/**Modifica un usuario
+/**
+* Modifica un usuario
 * @param unknown $campos Campos a modificar.
 * @param unknown $id ID del usuario.
 */
@@ -82,8 +88,9 @@ function modificarUsuario($campos, $id)
 	$bd->Update("usuario", $campos, "WHERE cod=$id");
 }
 
-/**Muestra los usuarios.
-* @param unknown $posIni Posición inicial dada.
+/**
+* Muestra los usuarios.
+* @param unknown $posIni PosiciÃ³n inicial dada.
 * @return unknown $usuarios Datos de los usuarios devueltos.
 */
 

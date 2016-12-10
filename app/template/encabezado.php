@@ -1,11 +1,11 @@
 <ul id="menu-bar">
  <li><a href="?ctrl=list"><span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;JobYesterday</a></li>
  
- <li><a href="?ctrl=list"><span style="color:#BDC3C7" class="glyphicon glyphicon-th-list"></span><B>&nbsp;&nbsp;Lista de Ofertas</B></a>
+ <li><a style="width: 190px" href="?ctrl=list"><span style="color:#BDC3C7" class="glyphicon glyphicon-th-list"></span>&nbsp;&nbsp;Lista de Ofertas</a>
   <ul>
    <li>
    	 <?php if ($_SESSION['tipo']=='A'): ?>
-	  	<a href="?ctrl=insert"><span style="color:#BDC3C7" class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Añadir Oferta</a>
+	  	<a style="width: 190px" href="?ctrl=insert"><span style="color:#BDC3C7" class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Añadir una oferta</a>
 	 <?php endif; ?>
    </li>
   </ul>
@@ -13,12 +13,12 @@
  
  <li>
  <?php if ($_SESSION['tipo']=='A'): ?>
-	  	<a href="?ctrl=list_user"><span class="glyphicon glyphicon-user" style="color:#28B463"></span><B>&nbsp;&nbsp;Gestión de Usuarios</B></a>
+	  	<a style="width: 220px" href="?ctrl=list_user"><span class="glyphicon glyphicon-user" style="color:#BDC3C7"></span>&nbsp;&nbsp;Gestión de usuarios</a>
 	 <?php endif; ?>
   <ul>
    <li>
     <?php if ($_SESSION['tipo']=='A'): ?>
-	  	<a href="?ctrl=insert_user"><span style="color:#28B463" class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;<span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;Añadir Usuario</a>
+	  	<a style="width: 220px" href="?ctrl=insert_user"><span style="color:#BDC3C7" class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;<span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;Añadir un usuario</a>
 	 <?php endif; ?>
    </li>
   </ul>

@@ -1,4 +1,7 @@
 <br><div class="container-fluid">
+	<div class="panel panel-default">
+	<div class="panel-body">
+	<br>
 <div class="panel panel-danger">
 <div class="panel-heading"><b>Borrar oferta Nº <?php echo $idoferta; ?></b></div>
 <div class="panel-body">
@@ -50,5 +53,7 @@
 	<a href="?ctrl=delete&borrado=si&id=<?=$idoferta;?>" class="btn btn-success"><span class="glyphicon glyphicon-ok"></span>&nbsp;&nbsp;Si</a>&nbsp;&nbsp;
 	<a href="?ctrl=list" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;No</a>
   </div>
+</div>
+</div>
 </div>
 </div>

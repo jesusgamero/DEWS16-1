@@ -1,7 +1,8 @@
 <?php
 include (MODEL_PATH . "DB_connection.php");
 
-/**Obstiene el nombre de todas las provincias de la base de datos.
+/**
+* Obstiene el nombre de todas las provincias de la base de datos.
 * @return unknown $provincias[] Array con todos los datos de todas las provincias.
 */
 
@@ -37,7 +38,7 @@ function obtenerPsicologos()
 }
 
 /**
- * Funci髇 que recibe un i y devuelve un nombre.
+ * Funci贸n que recibe un id y devuelve un nombre.
  * @param unknown $id ID de las provincias.
  * @return unknown $registro['nombre'] Devuelve el nombre de la provincia.
  */
@@ -51,7 +52,8 @@ function nombreProvincias($id)
 	return $registro['nombre'];
 }
 
-/**Obtiene los datos de una oferta a la que le he pasado el id.
+/**
+* Obtiene los datos de una oferta a la que le he pasado el id.
 * @param unknown $id ID de la oferta.
 * @return unknown $datos Array de datos de la oferta indicada.
 */
@@ -68,7 +70,8 @@ function obtenerOferta($id)
 	return $datos;
 }
 
-/**Recibe el id del psicologo y devuelve el nombre.
+/**
+* Recibe el id del psicologo y devuelve el nombre.
 * @param unknown $id ID del psicologo.
 * @return $registro['nombre'] Nombre del psicologo.
 */
@@ -82,7 +85,8 @@ function nombrePsicologo($id)
 	return $registro['nombre'];
 }
 
-/**Devuelve el n鷐ero de ofertas registradas en la base de datos.
+/**
+* Devuelve el numero de ofertas registradas en la base de datos.
 * @return unknown $reg['total'] Total de ofertas registradas.
 */
 
@@ -95,9 +99,10 @@ function nRegistros()
 	return $reg['total'];
 }
 
-/**Recibe una condici髇, realiza la b鷖queda y devuelve el n鷐ero de resultados.
-* @param unknown $condicion Condici髇 de b鷖queda
-* @return unknown $reg['total'] N鷐ero de ofertas encontradas.
+/**
+* Recibe una condici贸n, realiza la b煤squeda y devuelve el n煤mero de resultados.
+* @param unknown $condicion Condici贸n de b煤squeda
+* @return unknown $reg['total'] N煤mero de ofertas encontradas.
 */
 
 function nRegistrosBuscar($condicion)
@@ -109,7 +114,8 @@ function nRegistrosBuscar($condicion)
 	return $reg['total'];
 }
 
-/**Inserta una oferta con los campos indicado
+/**
+* Inserta una oferta con los campos indicado
 * @param unknown $campos Campos de la oferta.
 */
 
@@ -119,7 +125,8 @@ function insertaOferta($campos)
 	$bd->Insertar("oferta", $campos);
 }
 
-/**Borra una oferta indicada
+/**
+* Borra una oferta indicada
 * @param unknown $id Id de la oferta a borrar.
 */
 
@@ -129,7 +136,8 @@ function borrarOferta($id)
 	$bd->BorrarRegistro("oferta", "idoferta", $id);
 }
 
-/**Modifica los campos de una oferta indicada.
+/**
+* Modifica los campos de una oferta indicada.
 * @param unknown $campos Campos a modificar.
 * @param unknown $id Id de la oferta.
 */
@@ -140,8 +148,9 @@ function modificarOferta($campos, $id)
 	$bd->Update("oferta", $campos, "WHERE idoferta=$id");
 }
 
-/**Muestras ofertas desde la posici髇 indicada.
-* @param unknown $posIni Posici髇 inicial.
+/**
+* Muestras ofertas desde la posici贸n indicada.
+* @param unknown $posIni Posici贸n inicial.
 * @return unknown $ofertas Ofertas mostradas.
 */
 
@@ -163,10 +172,11 @@ function verOfertas($posIni)
 	return $ofertas;
 }
 
-/**Realiza la b鷖queda y devuelve los resultados.
-* @param unknown $condicion Condici髇 de b鷖queda.
-* @param unknown $posIni Posici髇 inicial.
-* @return unknown $ofertas Resultado de las ofertas de la b鷖queda.
+/**
+* Realiza la b煤squeda y devuelve los resultados.
+* @param unknown $condicion Condici贸n de b煤squeda.
+* @param unknown $posIni Posici贸n inicial.
+* @return unknown $ofertas Resultado de las ofertas de la b煤squeda.
 */
 
 function verBusqueda($condicion, $posIni)

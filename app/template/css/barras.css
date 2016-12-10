@@ -4,12 +4,12 @@
   padding: 0px 6px 4px 6px;
   height: 130px;
   line-height: 100%;
-  background: #262727;
+  background: #F7F7F7;
   font-weight: lighter;
   font-family: Arial, Helvetica, sans-serif;
   font-style: normal;
   font-size: 17px;
-  color: #FFFDFD;
+  color: #424949;
 }
 
 #menu-bar {
@@ -55,7 +55,7 @@
   color: #FFFFFF;
 }
 #menu-bar ul a:hover {
-  background: #34495E !important;
+  background: #626567 !important;
   color: #FFFFFF !important;
 }
 #menu-bar li:hover > ul {
@@ -66,7 +66,6 @@
   display: none;
   margin: 0;
   padding: 0;
-  width: 220px;
   position: absolute;
   top: 64px;
   left: 0;
@@ -78,14 +77,14 @@
   padding: 0;
 }
 #menu-bar ul a {
-  padding:10px 0px 10px 15px;
+  padding:15px 0px 10px 15px;
   color:#FFFFFF !important;
   font-size:17px;
   font-style:normal;
   font-family:arial;
   font-weight: normal;
-  height: 45px;
-  text-shadow: 0px 0px 0px #17202A;
+  height: 55px;
+  text-shadow: 0px 0px 0px #626567;
 }
 #menu-bar ul li:first-child > a {
   border-top-left-radius: 0px;

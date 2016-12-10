@@ -1,10 +1,10 @@
 <?php
-include_once 'DB_data.php';
+include_once '../app/config.php';
 
 
 /**
  * Clase encargada de gestionar las conexiones a la base de datos.
- * @author Jesús Gamero Méndez
+ * @author Jesus Gamero MÃ©ndez
  */
 Class Database {
 
@@ -27,7 +27,7 @@ Class Database {
 	private function __clone(){ }
 
 	/**
-	 * Función encargada de crear, si es necesario, el objeto. Esta es la funcion que debemos llamar desde fuera de la clase para instanciar el objeto, y así, poder utilizar sus métodos
+	 * FunciÃ³n encargada de crear, si es necesario, el objeto. Esta es la funcion que debemos llamar desde fuera de la clase para instanciar el objeto, y asÃ­, poder utilizar sus mÃ©todos
 	 */
 	public static function getInstance(){
 		if (!(self::$_instance instanceof self)){
@@ -38,7 +38,7 @@ Class Database {
 
 	
 	/**
-	 * Realiza la conexión a la base de datos.
+	 * Realiza la conexiÃ³n a la base de datos.
 	 */
 	private function Conectar($conf)
 	{
@@ -128,7 +128,7 @@ Class Database {
 	}
 
 	/**
-	 * Devuelve el último registro leido
+	 * Devuelve el Ãºltimo registro leido
 	 */
 	public function RegistroActual()
 	{
@@ -136,7 +136,7 @@ Class Database {
 	}
 
 	/**
-	 * Devuelve el valor del último campo autonumérico insertado
+	 * Devuelve el valor del Ãºltimo campo autonumÃ©rico insertado
 	 * @return int
 	 */
 	public function LastID()
@@ -145,7 +145,7 @@ Class Database {
 	}
 
 	/**
-	 * Devuelve el primer registro que cumple la condición indicada
+	 * Devuelve el primer registro que cumple la condiciÃ³n indicada
 	 * @param string $tabla
 	 * @param string $condicion
 	 * @param string $campos

@@ -13,6 +13,9 @@
 		<?php endif;?>
 		
 <div class="container-fluid">
+	<div class="panel panel-default">
+	<div class="panel-body">
+	<br>
 <form class="form-horizontal" method="POST">
 <div class="panel panel-default">
   <div class="panel-heading"><b>Insertar Oferta</b></div>
@@ -111,6 +114,8 @@
 	<a href="?ctrl=list" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;No</a>
 	</form>
   </div>
+</div>
+</div>
 </div>
 </div>
 </div>

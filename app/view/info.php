@@ -1,4 +1,7 @@
 <br><div class="container-fluid">
+	<div class="panel panel-default">
+	<div class="panel-body">
+	<br>
 <div class="panel panel-default">
 <div class="panel-heading"><b>Información de la oferta Nº <?= $idoferta; ?></b></div>
 <div class="panel-body">
@@ -40,5 +43,7 @@
 </div>
 </div>
 <div class="panel-footer"><a href="?ctrl=list" class="btn btn-primary"><span class="glyphicon glyphicon-chevron-left"></span>&nbsp;<b>Lista</b></a></div>
+</div>
+</div>
 </div>
 </div>

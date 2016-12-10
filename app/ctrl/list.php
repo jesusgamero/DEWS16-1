@@ -10,14 +10,14 @@ include_once (MODEL_PATH . "model.php");
 
 include_once (HELPERS_PATH . "helpers.php");
 
-//Array para crear los select de búsqueda.
+// Array para crear los select de búsqueda.
 
 $criterio = array(
 	'=' => "Igual a",
 	'LIKE' => "Contenga",
-	'>' => "Mayor"
+	'>' => "Mayor",
+	'<' => "Menor"
 );
-
 define('PROXPAG', 4);
 $listado = array();
 
@@ -32,6 +32,9 @@ if ($_POST) {
 // Si las sesion de búsqueda está vacia es cargo todas las ofertas.
 
 if (sesion('cond1b') == '' && sesion('cond2b') == '' && sesion('cond3b') == '') {
+
+	// Realizo la paginación de las ofertas.
+
 	if (isset($_GET['pag'])) $pag = $_GET['pag'];
 	else $pag = 1;
 	$maxPag = ((int)(NRegistros()) / PROXPAG) + 1;
@@ -72,56 +75,71 @@ else { //Cargo la búsqueda.
 		$hayError = TRUE;
 	}
 
-	if (sesion('cond1b') != '') {
-		if (sesion('cond1a') == 'LIKE') {
-			$cond1 = "descripcion " . $_SESSION['cond1a'] . " '%" . $_SESSION['cond1b'] . "%'";
-		}
-		else {
-			$cond1 = "descripcion" . $_SESSION['cond1a'] . "'" . $_SESSION['cond1b'] . "'";
-		}
+	// En caso de que haya algun error, lo muestro y cargo la lista de nuevo sin nada que mostrar hasta que se corriga la búsqueda.
 
-		$condiciones[] = $cond1;
+	if ($hayError) {
+
+		// Llamada a la vista
+
+		$nreg = 0;
+		$maxPag = 1;
+		include_once (VIEW_PATH . "list.php");
+
 	}
+	else { //Si todo está correcto, realizo la búsqueda.
+		if (sesion('cond1b') != '') {
+			if (sesion('cond1a') == 'LIKE') {
+				$cond1 = "descripcion " . $_SESSION['cond1a'] . " '%" . $_SESSION['cond1b'] . "%'";
+			}
+			else {
+				$cond1 = "descripcion" . $_SESSION['cond1a'] . "'" . $_SESSION['cond1b'] . "'";
+			}
 
-	if (sesion('cond2b') != '') {
-		if (sesion('cond2a') == 'LIKE') {
-			$cond2 = "fcreacion " . $_SESSION['cond2a'] . " '%" . formatoFecha($_SESSION['cond2b']) . "%'";
-		}
-		else {
-			$cond2 = "fcreacion" . $_SESSION['cond2a'] . "'" . formatoFecha($_SESSION['cond2b']) . "'";
+			$condiciones[] = $cond1;
 		}
 
-		$condiciones[] = $cond2;
+		if (sesion('cond2b') != '') {
+			if (sesion('cond2a') == 'LIKE') {
+				$cond2 = "fcreacion " . $_SESSION['cond2a'] . " '%" . formatoFecha($_SESSION['cond2b']) . "%'";
+			}
+			else {
+				$cond2 = "fcreacion" . $_SESSION['cond2a'] . "'" . formatoFecha($_SESSION['cond2b']) . "'";
+			}
+
+			$condiciones[] = $cond2;
+		}
+
+		if (sesion('cond3b') != '') {
+			if (sesion('cond3a') == 'LIKE') {
+				$cond3 = "cp " . $_SESSION['cond3a'] . " '%" . $_SESSION['cond3b'] . "%'";
+			}
+			else {
+				$cond3 = "cp" . $_SESSION['cond3a'] . "'" . $_SESSION['cond3b'] . "'";
+			}
+
+			$condiciones[] = $cond3;
+		}
+
+		$condicion = implode(" and ", $condiciones);
+		$nreg = nRegistrosBuscar($condicion);
+
+		// Paginación del buscar.
+
+		if (isset($_GET['pag'])) $pag = $_GET['pag'];
+		else $pag = 1;
+		$maxPag = ((int)(nRegistrosBuscar($condicion)) / PROXPAG) + 1;
+		if ($pag < 1 || $pag > $maxPag) $pag = 1;
+		$posIni = (($pag - 1) * PROXPAG) + 1;
+
+		// Muestro la búsqueda
+
+		$listado = verBusqueda($condicion, $posIni);
+
+		// Llamada a la vista
+
+		include_once (VIEW_PATH . "list.php");
+
 	}
-
-	if (sesion('cond3b') != '') {
-		if (sesion('cond3a') == 'LIKE') {
-			$cond3 = "cp " . $_SESSION['cond3a'] . " '%" . $_SESSION['cond3b'] . "%'";
-		}
-		else {
-			$cond3 = "cp" . $_SESSION['cond3a'] . "'" . $_SESSION['cond3b'] . "'";
-		}
-
-		$condiciones[] = $cond3;
-	}
-
-	$condicion = implode(" and ", $condiciones);
-	$nreg = nRegistrosBuscar($condicion);
-
-	// Paginación del buscar.
-
-	if (isset($_GET['pag'])) $pag = $_GET['pag'];
-	else $pag = 1;
-	$maxPag = ((int)(nRegistrosBuscar($condicion)) / PROXPAG) + 1;
-	if ($pag < 1 || $pag > $maxPag) $pag = 1;
-	$posIni = (($pag - 1) * PROXPAG) + 1;
-
-	// Muestro la búsqueda
-
-	$listado = verBusqueda($condicion, $posIni);
-
-	// Llamada a la vista
-
-	include_once (VIEW_PATH . "list.php");
-
 }
+
+?>

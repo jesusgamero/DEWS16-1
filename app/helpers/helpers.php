@@ -1,5 +1,6 @@
 <?php
-/**Verifica un email.
+/**
+* Verifica un email.
 * @param unknown $email Email a verificar.
 * @return boolean Devuelve verdadero o falso.
 */
@@ -11,7 +12,8 @@ function verificarEmail($email)
 	else return false;
 }
 
-/**Recibe una letra del estado y devuelve una cadena.
+/**
+* Recibe una letra del estado y devuelve una cadena.
 * @param unknown $estado Inicial del estado.
 * @return string Cadena del estado.
 */
@@ -35,7 +37,8 @@ function verEstado($estado)
 	}
 }
 
-/**Recibe una inicial del tipo de usuario y devuelve una cadena.
+/**
+* Recibe una inicial del tipo de usuario y devuelve una cadena.
 * @param unknown $tipo Inicial del tipo de usuario.
 * @return string Cadena del tipo de usuario.
 */
@@ -50,7 +53,8 @@ function tipoUsuario($tipo)
 	}
 }
 
-/**Convierte una cadena a formato yyyy-mm-dd
+/**
+* Convierte una cadena a formato yyyy-mm-dd
 * @param unknown $fecha_old Fecha a convertir
 * @return string $fecha_new Fecha convertida
 */
@@ -62,7 +66,8 @@ function formatoFecha($fecha_old)
 	return $fecha_new;
 }
 
-/**Convierte una cadena a formato dd/mm/yyyy
+/**
+* Convierte una cadena a formato dd/mm/yyyy
 * @param unknown $fecha_old Fecha a convertir
 * @return string $fecha_new Fecha convertida
 */
@@ -74,18 +79,19 @@ function formatoGregoriano($fecha_old)
 	return $fecha_new;
 }
 
-/**Recibe los campos de una oferta y crea un array con ellos.
-* @param unknown $desc Descripción
+/**
+* Recibe los campos de una oferta y crea un array con ellos.
+* @param unknown $desc DescripciÃ³n
 * @param unknown $per_cont Persona de contacto.
-* @param unknown $tlf_cont Teléfono.
+* @param unknown $tlf_cont TelÃ©fono.
 * @param unknown $email_cont Email.
-* @param unknown $dir Dirección.
-* @param unknown $pb Población.
+* @param unknown $dir DirecciÃ³n.
+* @param unknown $pb PoblaciÃ³n.
 * @param unknown $cp CP
 * @param unknown $provincia Provincias.
 * @param unknown $estado Estado.
-* @param unknown $fcom Fecha de comunicación.
-* @param unknown $psico Psicólogo encargado.
+* @param unknown $fcom Fecha de comunicaciÃ³n.
+* @param unknown $psico PsicÃ³logo encargado.
 * @param unknown $cand Candidato selecionado.
 * @param unknown $anotaciones Anotaciones del candidato.
 * @return unknown[] Devuelve el array.
@@ -142,7 +148,7 @@ function get($nombreCampo, $valorPorDefecto = '')
 }
 
 /**
- * Recibe el nombre de un campo de una sesion, si esa sesión tiene algun dato lo devuelve ,
+ * Recibe el nombre de un campo de una sesion, si esa sesiÃ³n tiene algun dato lo devuelve ,
  * si no, devuelve el valor por defecto establecido
  *
  * @param unknown $nombreCampo
@@ -157,7 +163,7 @@ function sesion($nombreCampo, $valorPorDefecto = '')
 }
 
 /**
- *
+ * FunciÃ³n que recibe un nombre y un array de valores y crea un select.
  * @param string $name Nombre del campo
  * @param array $opciones Opciones que tiene el select
  * 			clave array=valor option
@@ -214,7 +220,8 @@ function VerError($campo)
 	}
 }
 
-/**Comprueba que el campo requerido no esté vacio.
+/**
+* Comprueba que el campo requerido no estÃ¡ vacio.
 * @param unknown $nombreCampo Nombre del campo.
 * @param unknown $errores Errores encontrados.
 */
@@ -228,7 +235,8 @@ function campoRequerido($nombreCampo, $errores)
 
 //
 
-/**Valida fecha con los siguientes formatos d/m/yyyy, dd/mm/yyyy, d/mm/yyyy, dd/m/yyyy
+/**
+* Valida fecha con los siguientes formatos d/m/yyyy, dd/mm/yyyy, d/mm/yyyy, dd/m/yyyy
 * @param unknown $fecha Fecha introducida.
 * @return boolean
 */
@@ -243,10 +251,11 @@ function verificarFecha($fecha)
 	endif;
 }
 
-/**Calcula los días transcurridos entre dos fechas.
+/**
+* Calcula los dÃ­as transcurridos entre dos fechas.
 * @param unknown $fecha_i Fecha inicial.
 * @param unknown $fecha_f Fecha final.
-* @return unknown Días transcurridos.
+* @return unknown DÃ­as transcurridos.
 */
 
 function diasTranscurridos($fecha_i, $fecha_f)

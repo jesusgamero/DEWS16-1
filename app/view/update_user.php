@@ -13,6 +13,9 @@
 		<?php endif;?>
 		
 <div class="container-fluid">
+	<div class="panel panel-default">
+	<div class="panel-body">
+	<br>
 <form class="form-horizontal" method="POST">
 <div class="panel panel-default">
   <div class="panel-heading"><b>Modificar usuario: </b><?php echo $datosusuario['nombre']."<b> (".$datosusuario['user'].")</b>"; ?></div>
@@ -58,6 +61,8 @@
 	<a href="?ctrl=list_user" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;No</a>
 	</form>
   </div>
+</div>
+</div>
 </div>
 </div>
 </div>
