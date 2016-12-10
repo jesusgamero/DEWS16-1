@@ -22,7 +22,7 @@
 <div class="form-group">
   <label class="col-md-2 control-label" for="desc">Descripción: *</label>  
     <div class="col-md-10">                     
-    <textarea class="form-control" id="desc" name="desc" placeholder="Texto descriptivo identificativo de la oferta."><?php if (isset($_POST["desc"])){echo $_POST["desc"];}?></textarea>
+    <textarea class="form-control" id="desc" name="desc" maxlength="230" placeholder="Texto descriptivo identificativo de la oferta."><?php if (isset($_POST["desc"])){echo $_POST["desc"];}?></textarea>
   </div>
 </div>
 
@@ -48,7 +48,7 @@
   <div class="col-md-2">
   <input id="dir" name="dir" value="<?=  post('dir') ?>" type="text" placeholder="Dirección de la empresa" class="form-control input-md">
   </div>
-  <label class="col-md-2 control-label" for="pb">Población</label>  
+  <label class="col-md-2 control-label" for="pb">Población:</label>  
   <div class="col-md-2">
   <input id="pb" name="pb" value="<?=  post('pb') ?>" type="text" placeholder="Población" class="form-control input-md">
   </div>
@@ -95,7 +95,7 @@
 <div class="form-group">
   <label class="col-md-2 control-label" for="anotaciones">Otros datos candidato:</label>
   <div class="col-md-10">                     
-    <textarea class="form-control" id="anotaciones" name="anotaciones" placeholder="Anotaciones realizadas sobre el candidato seleccionado."><?php if (isset($_POST["anotaciones"])){echo $_POST["anotaciones"];}?></textarea>
+    <textarea class="form-control" id="anotaciones" name="anotaciones" maxlength="230" placeholder="Anotaciones realizadas sobre el candidato seleccionado."><?php if (isset($_POST["anotaciones"])){echo $_POST["anotaciones"];}?></textarea>
   </div>
 </div>
 </div>

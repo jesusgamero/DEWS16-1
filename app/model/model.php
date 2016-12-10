@@ -5,7 +5,7 @@ function obtenerProvincias(){
 $a=[];
 $provincias=[];
 $bdatos=Database::getInstance();
-$a=$bdatos ->Consulta("SELECT p.cod_provincia, p.nombre from jobyesterday.provincia p");
+$a=$bdatos ->Consulta("SELECT p.cod_provincia, p.nombre from provincia p");
 
 while ($line= mysqli_fetch_array($a,MYSQL_ASSOC))
 {
@@ -18,7 +18,7 @@ function obtenerPsicologos(){
 $a=[];
 $psico=[];
 $bdatos=Database::getInstance();
-$a=$bdatos ->Consulta("SELECT u.cod, u.nombre from jobyesterday.usuario u WHERE tipo='P'");
+$a=$bdatos ->Consulta("SELECT u.cod, u.nombre from usuario u WHERE tipo='P'");
 
 while ($line= mysqli_fetch_array($a,MYSQL_ASSOC))
 {
@@ -30,25 +30,27 @@ return $psico;
 function nombreProvincias($id)
 {
 	$bdatos=Database::getInstance();
-	$query='SELECT p.nombre FROM jobyesterday.provincia p WHERE p.cod_provincia='.$id;
+	$query='SELECT p.nombre FROM provincia p WHERE p.cod_provincia='.$id;
 	$res=$bdatos->Consulta($query);
 	$registro=$bdatos ->LeeRegistro();
 	return $registro['nombre'];
 }
 
-function obtenerCampo($campo,$id)
+function obtenerOferta($id)
 {
-	$bdatos=Database::getInstance();
-	$query='SELECT '.$campo.' FROM jobyesterday.oferta o WHERE o.idoferta='.$id;
-	$res=$bdatos->Consulta($query);
-	$registro=$bdatos ->LeeRegistro();
-	return $registro[$campo];
+	$datos = array();
+	$conex = Database::getInstance();
+	$conex->Consulta("SELECT * FROM oferta WHERE idoferta = '$id'");
+	while ($rs = $conex->LeeRegistro()) {
+		$datos = $rs;
+	}
+	return $datos;
 }
 
 function nombrePsicologo($id)
 {
 	$bdatos=Database::getInstance();
-	$query='SELECT u.nombre FROM jobyesterday.usuario u WHERE u.cod='.$id;
+	$query='SELECT u.nombre FROM usuario u WHERE u.cod='.$id;
 	$res=$bdatos->Consulta($query);
 	$registro=$bdatos ->LeeRegistro();
 	return $registro['nombre'];
@@ -57,7 +59,16 @@ function nombrePsicologo($id)
 function nRegistros()
 {
 	$MyBD=Database::getInstance();
-	$query ="SELECT count(*) as total FROM jobyesterday.oferta";
+	$query ="SELECT count(*) as total FROM oferta";
+	$result=$MyBD-> Consulta($query);
+	$reg=mysqli_fetch_assoc($result);
+	return $reg['total'];
+}
+
+function nUsuarios()
+{
+	$MyBD=Database::getInstance();
+	$query ="SELECT count(*) as total FROM usuario";
 	$result=$MyBD-> Consulta($query);
 	$reg=mysqli_fetch_assoc($result);
 	return $reg['total'];
@@ -66,7 +77,7 @@ function nRegistros()
 function nRegistrosBuscar($condicion)
 {
 	$MyBD=Database::getInstance();
-	$query ="SELECT count(*) as total FROM jobyesterday.oferta where ".$condicion;
+	$query ="SELECT count(*) as total FROM oferta where ".$condicion;
 	$result=$MyBD-> Consulta($query);
 	$reg=mysqli_fetch_assoc($result);
 	return $reg['total'];
@@ -93,7 +104,7 @@ function modificarOferta($campos,$id){
 function verOfertas($posIni)
 {
 	$bd=database::getInstance();
-	$query ="SELECT * FROM jobyesterday.oferta LIMIT ".($posIni-1).",".PROXPAG;
+	$query ="SELECT * FROM oferta LIMIT ".($posIni-1).",".PROXPAG;
 	
 	$res=array();
 	$res=$bd->Consulta($query);
@@ -113,7 +124,7 @@ function verOfertas($posIni)
 function verBusqueda($condicion,$posIni)
 {
 	$bd=database::getInstance();
-	$query ="SELECT * FROM jobyesterday.oferta where ".$condicion." LIMIT ".($posIni-1).",".PROXPAG;
+	$query ="SELECT * FROM oferta where ".$condicion." LIMIT ".($posIni-1).",".PROXPAG;
 	
 	$res=array();
 	$res=$bd->Consulta($query);

@@ -11,10 +11,20 @@ $hoy = date("d/m/Y");
 //Creamos array de provincias y lo rellenamos.
 $provincias=array();
 $provincias=obtenerProvincias();
+
+$estado=array(
+					'P' => "Pendiente de iniciar selección",
+					'R' => "Realizando selección",
+					'S' => "Seleccionando candidato",
+					'C' => "Cancelada");
+
+//Obtenego el id y guardo en el array datosoferta todos los datos de esa oferta con ese id.
+$idoferta=$_GET["id"];
+$datosoferta=obtenerOferta($idoferta);
+
 $hayError=false;
 
-$idoferta=$_GET["id"];
-	
+if ($_SESSION['tipo']=='A'){
 if (! $_POST) //Si es la primera vez que entra.
 		{
 			//Llamada a la vista
@@ -85,7 +95,7 @@ else //Si he realizado el envio.
 		// La fecha de comunicación tiene que ser posterior a la de hoy.		
 		if (post('fcom') && verificarFecha(post('fcom')) && formatoFecha(post('fcom')) < formatoFecha($hoy))
 			{
-				$errores['fcom']='La fecha de creación tiene que ser posterior al día de hoy';
+				$errores['fcom']='La fecha de comunicación tiene que ser posterior al día de hoy';
 				$hayError=TRUE;
 			}
 			
@@ -105,4 +115,22 @@ else //Si he realizado el envio.
 				header('Location:?ctrl=list&modificado=si');
 			}
 	}
+}
+else if ($_SESSION['tipo']=='P')
+{
+	if (! $_POST) //Si es la primera vez que entra.
+		{
+			//Llamada a la vista
+			include_once(VIEW_PATH."update_psico.php");
+		}
+	else
+		{
+			$oferta=array(
+			'estado' => $_POST['estado'],
+			'candidato' => $_POST['cand'],
+			'des_candidato' => $_POST['anotaciones']);
+			modificarOferta($oferta,$idoferta);
+			header('Location:?ctrl=list&modificado=si');
+		}
+}
 ?>

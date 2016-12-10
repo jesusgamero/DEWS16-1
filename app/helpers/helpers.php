@@ -1,5 +1,4 @@
 <?php
-
 function verificarEmail($email)
 {
    $Sintaxis='#^[\w.-]+@[\w.-]+\.[a-zA-Z]{2,6}$#';
@@ -7,6 +6,38 @@ function verificarEmail($email)
       return true;
    else
      return false;
+}
+
+function verEstado($estado)
+{
+ if ($estado=='P')
+	{
+	return 'Pendiente de iniciar selección';
+	}
+else if ($estado=='R')
+	{
+	return 'Realizando selección';	
+	}
+else if ($estado=='S')
+	{
+	return 'Seleccionando candidato';	
+	}
+else if ($estado=='C')
+	{
+	return 'Cancelada';	
+	}
+}
+
+function tipoUsuario($tipo)
+{
+ if ($tipo=='A')
+	{
+	return 'Administrador';
+	}
+else
+	{
+	return 'Psicólogo';	
+	}
 }
 
 function formatoFecha($fecha_old){
@@ -93,6 +124,28 @@ function creaSelect($name, $opciones, $valorDefecto='')
 	}
 	$html.="\n</select>";
 
+	return $html;
+}
+
+/**
+ * Crea un grupo de radiobutton
+ * @param string $name Name del radiobutton
+ * @param array $opciones Opciones del radiobutton
+ * @param string $valorDefecto Valor por defecto del radiobutton
+ * @return string
+ */
+function creaRadio($name, $opciones, $valorDefecto='') {
+	foreach ($opciones as $value=>$text)
+	{
+		$html="";
+		foreach ($opciones as $value=>$text) {
+			if ($value==$valorDefecto)
+				$checked='checked="checked"';
+			else
+				$checked="";
+			$html.="\n<input type=\"radio\" name=\"$name\" value=\"$value\" $checked> $text<br>";
+		}
+	}
 	return $html;
 }
 

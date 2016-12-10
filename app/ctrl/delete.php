@@ -3,7 +3,10 @@
 	include_once(MODEL_PATH."model.php");
 	//Llamada a utilidades
 	include_once(HELPERS_PATH."helpers.php");
+	
+	//Obtenego el id y guardo en el array datosoferta todos los datos de esa oferta con ese id.
 	$idoferta=$_GET["id"];
+	$datosoferta=obtenerOferta($idoferta);
 	
 	//Si es la primera vez que entra carga el formulario si es la segunda vez y la barriable borrado es si borra el registro.
 	if (!isset($_GET["borrado"])) 

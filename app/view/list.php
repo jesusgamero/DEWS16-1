@@ -35,13 +35,12 @@
 		
 	<div class="container-fluid">	
 	<form class="form-horizontal" method="POST">
-	<a href="?ctrl=insert"><span class="glyphicon glyphicon-plus"></span>&nbsp;<b>&nbsp;Insertar</b></a>&nbsp;&nbsp;&nbsp;
 	<div class="panel panel-default">
 	 <div class="panel-heading"><h3 class="panel-title">Filtrado de ofertas</h3></div>
 	<div class="panel-body">
 		<div class="row">
 		
-		<label class="col-xs-12 col-sm-2 col-md-1 control-label" for="estado">Descripción:</label>
+		<label class="col-xs-12 col-sm-2 col-md-1 control-label" for="descripcion">Descripción:</label>
 		<div class="col-xs-12 col-sm-4 col-md-1">
 			<select id="cond1a" name="cond1a" class="form-control">
 			  <option value="=">Igual a</option>
@@ -53,7 +52,7 @@
 			<input id="cond1b" value="<?= post('cond1b') ?>" name="cond1b" class="form-control input-md" placeholder="Descripción de la oferta">
 		</div>
 
-		<label class="col-xs-12 col-sm-2 col-md-1 control-label" for="estado">Creación:</label>
+		<label class="col-xs-12 col-sm-2 col-md-1 control-label" for="creacion">Creación:</label>
 		<div class="col-xs-12 col-sm-4 col-md-1">
 			<select id="cond2a" name="cond2a" class="form-control">
 			  <option value="=">Igual a</option>
@@ -65,7 +64,7 @@
 			<input id="cond2b" value="<?= post('cond2b') ?>"name="cond2b" class="form-control input-md" placeholder="dd/mm/yyyy">
 		</div>
 
-		<label class="col-xs-12 col-sm-2 col-md-1 control-label" for="estado">CP:</label>
+		<label class="col-xs-12 col-sm-2 col-md-1 control-label" for="cp">CP:</label>
 		<div class="col-xs-12 col-sm-4 col-md-1">
 			<select id="cond3a" name="cond3a" class="form-control">
 			  <option value="=">Igual a</option>
@@ -101,8 +100,12 @@
 		foreach ($listado as $clave => $oferta) 
 		{ ?>
 					<div class="panel panel-default">
-					<div class="panel-heading"><b>Oferta <?= $oferta['idoferta']; ?> </b> 
+					<div class="panel-heading"><b>Oferta Nº <?= $oferta['idoferta']; ?> </b> 
+					
+					<?php if ($_SESSION['tipo']=='A'): ?>
 					<a href="?ctrl=delete&id=<?= $oferta['idoferta']; ?>" class="close">&times;</a>
+					<?php endif; ?>
+					
 					</div>	
 					<div class="panel-body">	 	
 					<div class="form-horizontal">
@@ -119,7 +122,7 @@
 
 						<div class="form-group">
 						  <div class="col-md-4"><b>Provincia: </b><?= nombreProvincias($oferta['provincia']) ?></div>  
-						  <div class="col-md-2"><b>Estado: </b><?= $oferta['estado']; ?></div>
+						  <div class="col-md-2"><b>Estado: </b><?= verEstado($oferta['estado']); ?></div>
 						  <div class="col-md-4"><b>Psicologo encargado: </b><?= nombrePsicologo($oferta['psico_encar']) ?></div>  
 						</div>
 
@@ -135,8 +138,12 @@
 					<div class="panel-footer">
 					<a href="?ctrl=info&id=<?= $oferta['idoferta']; ?>"><span class="glyphicon glyphicon-eye-open"></span>&nbsp;<b>&nbsp;Ver</b></a>&nbsp;&nbsp;&nbsp;
 					<a href="?ctrl=update&id=<?= $oferta['idoferta']; ?>"><span class="glyphicon glyphicon-pencil"></span>&nbsp;<b>&nbsp;Editar</b></a>&nbsp;&nbsp;&nbsp;
+					
+					<?php if ($_SESSION['tipo']=='A'): ?>
 					<a href="?ctrl=delete&id=<?= $oferta['idoferta']; ?>" style="color: #CB4335"><span style="color: #FFFFF" class="glyphicon glyphicon-remove"></span>&nbsp;<b>&nbsp;Borrar</b></a>
-					<a href="?ctrl=info&id=<?= $oferta['idoferta']; ?>" STYLE="position: absolute;">Hace <?= diasTranscurridos($oferta['fcreacion'],date("Y-m-d")); ?> días</a>
+					<?php endif; ?>
+						 
+					<label style="float:right; color:#585858"><?= formatoGregoriano($oferta['fcreacion']) ?> (Hace <?= diasTranscurridos($oferta['fcreacion'],date("Y-m-d")); ?> días)</label>
 					</div>
 					</div>
 	

@@ -11,6 +11,8 @@ $hoy = date("d/m/Y");
 //Creamos array de provincias y lo rellenamos.
 $provincias=array();
 $provincias=obtenerProvincias();
+
+//Obtenego el id y guardo en el array datosoferta todos los datos de esa oferta con ese id.
 $hayError=false;
 
 if (! $_POST) //Si es la primera vez que entra.
@@ -83,7 +85,7 @@ else //Si he realizado el envio.
 		// La fecha de comunicación tiene que ser anterior a la de hoy.		
 		if (post('fcom') && verificarFecha(post('fcom')) && formatoFecha(post('fcom')) < formatoFecha($hoy))
 			{
-				$errores['fcom']='La fecha de creación tiene que ser anterior al día de hoy';
+				$errores['fcom']='La fecha de comunicación tiene que ser anterior al día de hoy';
 				$hayError=TRUE;
 			}
 			

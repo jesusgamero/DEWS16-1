@@ -23,13 +23,13 @@ if (isset($_SESSION["tipo"]) && ($_SESSION['tipo']=='A' || $_SESSION['tipo']=='P
 			} 
 			else 
 			{ 
-				$errores['clave']='Contraseña errónea';
+				$errores['clave']='Error de acceso: Contraseña errónea';
 				$hayError=TRUE;
 			}
 		}
 		else 
 		{ 
-			$errores['usuario']='El usuario no existe';
+			$errores['usuario']='Error de acceso: El usuario no existe';
 			$hayError=TRUE;
 		}
 	}

@@ -7,20 +7,21 @@
 	include_once(HELPERS_PATH."helpers.php");
 	
 	define ('PROXPAG',4);
-		
 	if (isset($_GET['pag']))
 		$pag=$_GET['pag'];
 	else
 		$pag=1;
-		
 	$maxPag=((int) (NRegistros())/PROXPAG)+1;
+	
 	if ($pag<1 || $pag>$maxPag)
-		$pag=1;
-		
+			$pag=1;
+			
 	$posIni=(($pag-1)*PROXPAG)+1;
 	$listado= array();
+	
+	
 	if (!$_POST)
-	{
+	{		
 		$listado=verOfertas($posIni);
 		$nreg=NRegistros();
 		//Llamada a la vista
@@ -72,11 +73,11 @@
 		{
 			if (post('cond2a')=='LIKE')
 			{
-			$cond2="fcreacion ".$_POST['cond2a']." '%".$_POST['cond2b']."%'";
+			$cond2="fcreacion ".$_POST['cond2a']." '%".formatoFecha($_POST['cond2b'])."%'";
 			}
 			else
 			{
-			$cond2="fcreacion".$_POST['cond2a']."'".$_POST['cond2b']."'";
+			$cond2="fcreacion".$_POST['cond2a']."'".formatoFecha($_POST['cond2b'])."'";
 			}
 			$condiciones[]=$cond2;
 		}
@@ -103,6 +104,20 @@
 		{
 		$condicion = implode(" and ", $condiciones);
 		$nreg=nRegistrosBuscar($condicion);
+		
+		//Paginación del buscar.
+		if (isset($_GET['pag']))
+		$pag=$_GET['pag'];
+		else
+			$pag=1;
+		$maxPag=((int) (nRegistrosBuscar($condicion))/PROXPAG)+1;
+	
+		if ($pag<1 || $pag>$maxPag)
+			$pag=1;
+			
+		$posIni=(($pag-1)*PROXPAG)+1;
+		
+		//Muestro la búsqueda
 		$listado=verBusqueda($condicion,$posIni);	
 		}
 
