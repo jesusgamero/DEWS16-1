@@ -77,7 +77,7 @@
 					</div>
 					</div>
 	
-			<center>
+			<center><b>
 			<ul class="pagination">
 			<li><a href="?ctrl=list_user&pag=1" >&laquo;</a></li>
 			<li><a href="?ctrl=list_user&pag=<?php echo ($pag-1);?>"><</a></li>
@@ -93,7 +93,7 @@
 			<li><a href="?ctrl=list_user&pag=<?php if ($pag < ceil($maxPag-1)){echo ($pag+1);} else {echo (ceil($maxPag-1));} ?>">></a></li>
 			<li><a href="?ctrl=list_user&pag=<?php echo (ceil($maxPag-1));?>">&raquo;</a></li>
 			</ul>
-		</center>
+		</b></center>
 	</div>
 	</div>
 	</div>

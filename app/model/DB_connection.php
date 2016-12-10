@@ -1,7 +1,11 @@
 <?php
 include_once 'DB_data.php';
 
-/* Clase encargada de gestionar las conexiones a la base de datos */
+
+/**
+ * Clase encargada de gestionar las conexiones a la base de datos.
+ * @author Jesús Gamero Méndez
+ */
 Class Database {
 
 	private $link;
@@ -9,16 +13,22 @@ Class Database {
 	private $regActual;
 	private static $_instance;
 
-	/*La funciÃ³n construct es privada para evitar que el objeto pueda ser creado mediante new*/
+	/**
+	 * Constructor de la clase.
+	 */
 	private function __construct(){
 
 		$this->Conectar($GLOBALS['db_conf']);//le pasamos la base de datos
 	}
 
-	/*Evitamos el clonaje del objeto. Patron Singleton*/
+	/**
+	*Evitamos el clonaje del objeto. Patron Singleton
+	 */
 	private function __clone(){ }
 
-	/*FunciÃ³n encargada de crear, si es necesario, el objeto. Esta es la funcion que debemos llamar desde fuera de la clase para instanciar el objeto, y asÃ­, poder utilizar sus mÃ©todos*/
+	/**
+	 * Función encargada de crear, si es necesario, el objeto. Esta es la funcion que debemos llamar desde fuera de la clase para instanciar el objeto, y así, poder utilizar sus métodos
+	 */
 	public static function getInstance(){
 		if (!(self::$_instance instanceof self)){
 			self::$_instance=new self();
@@ -26,7 +36,10 @@ Class Database {
 		return self::$_instance;
 	}
 
-	/*Realiza la conexiÃ³n a la base de datos.*/
+	
+	/**
+	 * Realiza la conexión a la base de datos.
+	 */
 	private function Conectar($conf)
 	{
 		if (! is_array($conf))
@@ -63,12 +76,20 @@ Class Database {
 		return $this->result;
 	}
 
+	/**
+	 * Muestra el error que se ha producido.
+	 */
 	public function ShowError()
 	{
 		echo "<p>Error: ".$this->link->error."</p>";
 		die();
 	}
 
+	/**
+	 * Inserta el contenido de registro en la tabla indicada
+	 * @param unknown $tabla Tabla en la que se inserta los campos.
+	 * @param unknown $registro Datos del registro a insertar.
+	 */
 	public function Insertar($tabla, $registro){
 
 		$values=array();
@@ -107,7 +128,7 @@ Class Database {
 	}
 
 	/**
-	 * Devuelve el Ãºltimo registro leido
+	 * Devuelve el último registro leido
 	 */
 	public function RegistroActual()
 	{
@@ -115,7 +136,7 @@ Class Database {
 	}
 
 	/**
-	 * Devuelve el valor del Ãºltimo campo autonumÃ©rico insertado
+	 * Devuelve el valor del último campo autonumérico insertado
 	 * @return int
 	 */
 	public function LastID()
@@ -124,7 +145,7 @@ Class Database {
 	}
 
 	/**
-	 * Devuelve el primer registro que cumple la condiciÃ³n indicada
+	 * Devuelve el primer registro que cumple la condición indicada
 	 * @param string $tabla
 	 * @param string $condicion
 	 * @param string $campos
@@ -182,12 +203,31 @@ Class Database {
 		return $return;
 
 	}
+	
+	/**
+	 * Borra un registro utilizando SQL
+	 * @param unknown $table Tabla donde se borra el campo.
+	 * @param unknown $fields
+	 * @param unknown $values
+	 * @param string $where
+	 * @param string $query
+	 * @return boolean
+	 */
 	function BorrarRegistro($table,$campo,$id)
 	{
 		$query="DELETE FROM ".$table." where ".$table.".".$campo."=".$id.";";
 		$this->Consulta($query);
 	}
 	
+	/**
+	 * Actualiza un campo de un registro utilizando SQL
+	 * @param unknown $table
+	 * @param unknown $fields
+	 * @param unknown $values
+	 * @param string $where
+	 * @param string $query
+	 * @return boolean
+	 */
 	function Actualizar_UnCampo($table,$id,$campo,$nuevovalor,$referencia)
 	{	
 			$query="UPDATE ". $table ." SET ". $campo." = '".$nuevovalor."' WHERE " .$referencia." = ".$id.";";

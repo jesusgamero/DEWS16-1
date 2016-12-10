@@ -46,26 +46,26 @@
 		  <div class="col-md-4"><b>Fecha creación: </b><?php echo formatoGregoriano($datosoferta['fcreacion']); ?></div>  
 		  <div class="col-md-3"><b>Fecha comunicación: </b><?php echo formatoGregoriano($datosoferta['fcomunicacion']); ?></div>   
 		</div>
+		</div>
+		</div>
+		</div>
 		
-		<div class="form-group">
-		<div class="col-md-4"><b>Canditato seleccionado: </b>
-		<input id="cand" name="cand" value="<?php echo $datosoferta['candidato']; ?>" type="text" placeholder="Nombre del candidato" class="form-control input-md col-md-2">
-		</div>  
-		<div class="col-md-5"><b>Estado: </b><br>
+		<div class="panel panel-default">
+		<div class="panel-heading"><b>Opciones que puede modificar el psicólogo</b></div>
+		<div class="panel-body">
+		<label class="col-md-1" for="estado">Estado:</label>
+		<div class="col-md-2">
 			<?= creaRadio('estado',$estado,$datosoferta['estado'])?>
 		</div>
+		<div class="col-md-3"><b>Candidato seleccionado: </b>
+			<input id="cand" name="cand" type="text" placeholder="Nombre del candidato seleccionado" class="form-control input-md" value="<?php echo $datosoferta['candidato']; ?>">
 		</div>
-		
-		<!-- Textarea -->
-		<div class="form-group">
-		<div class="col-md-12"><b>Otros datos candidato: </b>
+		<br>
+		<div class="col-md-12"><br><b>Otros datos candidato: </b>
 		  <textarea class="form-control" id="anotaciones" maxlength="230" name="anotaciones" placeholder="Anotaciones realizadas sobre el candidato seleccionado."><?php echo $datosoferta['des_candidato']; ?></textarea>
 		</div>
 		</div>
-	</div>
-
-	</div>
-	</div>
+		</div>
 
 
 <div class="panel panel-default">

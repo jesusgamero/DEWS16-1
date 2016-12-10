@@ -1,0 +1,122 @@
+#footer {
+  width: 100%;
+  margin: 0px 0px 0px 0px;
+  padding: 0px 6px 4px 6px;
+  height: 130px;
+  line-height: 100%;
+  background: #262727;
+  font-weight: lighter;
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-size: 17px;
+  color: #FFFDFD;
+}
+
+#menu-bar {
+  width: 100%;
+  margin: 0px 0px 0px 0px;
+  padding: 6px 6px 4px 6px;
+  height: 70px;
+  line-height: 100%;
+  background: #262727;
+  position:relative;
+  z-index:999;
+}
+#menu-bar li {
+  margin: 0px 0px 6px 0px;
+  padding: 14px 6px 0px 6px;
+  float: left;
+  position: relative;
+  list-style: none;
+}
+#menu-bar a {
+  font-weight: lighter;
+  font-family: sans-serif;
+  font-style: normal;
+  font-size: 17px;
+  color: #FFFDFD;
+  text-decoration: none;
+  display: block;
+  padding: 6px 20px 6px 20px;
+  margin: 0;
+  margin-bottom: 0px;
+  height: 50px;
+}
+#menu-bar li ul li a {
+  margin: 0;
+}
+#menu-bar .active a, #menu-bar li:hover > a {
+  background: #262727;
+  color: #FFFFFF;
+}
+#menu-bar ul li:hover a, #menu-bar li:hover li a {
+  background: none;
+  border: none;
+  color: #FFFFFF;
+}
+#menu-bar ul a:hover {
+  background: #34495E !important;
+  color: #FFFFFF !important;
+}
+#menu-bar li:hover > ul {
+  display: block;
+}
+#menu-bar ul {
+  background: #262727;
+  display: none;
+  margin: 0;
+  padding: 0;
+  width: 220px;
+  position: absolute;
+  top: 64px;
+  left: 0;
+  border: solid 0px #FFFFFF;
+}
+#menu-bar ul li {
+  float: none;
+  margin: 0;
+  padding: 0;
+}
+#menu-bar ul a {
+  padding:10px 0px 10px 15px;
+  color:#FFFFFF !important;
+  font-size:17px;
+  font-style:normal;
+  font-family:arial;
+  font-weight: normal;
+  height: 45px;
+  text-shadow: 0px 0px 0px #17202A;
+}
+#menu-bar ul li:first-child > a {
+  border-top-left-radius: 0px;
+  -webkit-border-top-left-radius: 0px;
+  -moz-border-radius-topleft: 0px;
+  border-top-right-radius: 0px;
+  -webkit-border-top-right-radius: 0px;
+  -moz-border-radius-topright: 0px;
+}
+#menu-bar ul li:last-child > a {
+  border-bottom-left-radius: 0px;
+  -webkit-border-bottom-left-radius: 0px;
+  -moz-border-radius-bottomleft: 0px;
+  border-bottom-right-radius: 0px;
+  -webkit-border-bottom-right-radius: 0px;
+  -moz-border-radius-bottomright: 0px;
+}
+#menu-bar:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+#menu-bar {
+  display: inline-block;
+}
+  html[xmlns] #menu-bar {
+  display: block;
+}
+* html #menu-bar {
+  height: 1%;
+}

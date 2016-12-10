@@ -4,6 +4,10 @@
     padding: 40px 40px;
 }
 
+.install-container.card {
+    width: 500px;
+    padding: 40px 40px;
+}
 .separacion {
     padding-top: 10%;
 }
@@ -95,6 +99,6 @@
 
 .contenido
 {
-  background-color: #154360;	/*#283747*/
+  background-color: #262727; /*#283747;*/
   height: 100%;
 }

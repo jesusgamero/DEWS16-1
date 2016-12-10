@@ -42,38 +42,26 @@
 		
 		<label class="col-xs-12 col-sm-2 col-md-1 control-label" for="descripcion">Descripción:</label>
 		<div class="col-xs-12 col-sm-4 col-md-1">
-			<select id="cond1a" name="cond1a" class="form-control">
-			  <option value="=">Igual a</option>
-			  <option value="LIKE">Contenga</option>
-			  <option value=">">Mayor</option>
-			</select>
+		<?= creaSelect('cond1a',$criterio,sesion('cond1a'))?>
 		</div>
 		<div class="col-xs-12 col-sm-5 col-md-3">
-			<input id="cond1b" value="<?= post('cond1b') ?>" name="cond1b" class="form-control input-md" placeholder="Descripción de la oferta">
+			<input id="cond1b" value="<?= sesion('cond1b') ?>" name="cond1b" class="form-control input-md" placeholder="Descripción de la oferta">
 		</div>
 
 		<label class="col-xs-12 col-sm-2 col-md-1 control-label" for="creacion">Creación:</label>
 		<div class="col-xs-12 col-sm-4 col-md-1">
-			<select id="cond2a" name="cond2a" class="form-control">
-			  <option value="=">Igual a</option>
-			  <option value="LIKE">Contenga</option>
-			  <option value=">">Mayor</option>
-			</select>
+		<?= creaSelect('cond2a',$criterio,sesion('cond2a'))?>
 		</div>
 		<div class="col-xs-12 col-sm-5 col-md-1">
-			<input id="cond2b" value="<?= post('cond2b') ?>"name="cond2b" class="form-control input-md" placeholder="dd/mm/yyyy">
+			<input id="cond2b" value="<?= sesion('cond2b') ?>"name="cond2b" class="form-control input-md" placeholder="dd/mm/yyyy">
 		</div>
 
 		<label class="col-xs-12 col-sm-2 col-md-1 control-label" for="cp">CP:</label>
 		<div class="col-xs-12 col-sm-4 col-md-1">
-			<select id="cond3a" name="cond3a" class="form-control">
-			  <option value="=">Igual a</option>
-			  <option value="LIKE">Contenga</option>
-			  <option value=">">Mayor</option>
-			</select>
+		<?= creaSelect('cond3a',$criterio,sesion('cond3a'))?>
 		</div>
 		<div class="col-xs-12 col-sm-5 col-md-1">
-			<input id="cond3b" value="<?= post('cond3b') ?>" name="cond3b" class="form-control input-md" placeholder="C. Postal">
+			<input id="cond3b" value="<?= sesion('cond3b') ?>" name="cond3b" class="form-control input-md" placeholder="C. Postal">
 		</div>
 		</div>
 	</div>
@@ -148,7 +136,7 @@
 					</div>
 	
 		<?php }}?>
-		<center>
+		<center><b>
 			<ul class="pagination">
 			<li><a href="?ctrl=list&pag=1" >&laquo;</a></li>
 			<li><a href="?ctrl=list&pag=<?php echo ($pag-1);?>"><</a></li>
@@ -164,7 +152,7 @@
 			<li><a href="?ctrl=list&pag=<?php if ($pag < ceil($maxPag-1)){echo ($pag+1);} else {echo (ceil($maxPag-1));} ?>">></a></li>
 			<li><a href="?ctrl=list&pag=<?php echo (ceil($maxPag-1));?>">&raquo;</a></li>
 			</ul>
-		</center>
+		</b></center>
 	</div>
 	</div>
 	</div>
